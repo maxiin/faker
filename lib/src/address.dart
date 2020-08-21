@@ -1,7 +1,10 @@
+import 'dart:ffi';
+
 import 'data/address/city_suffixes.dart';
 import 'data/address/continents.dart';
 import 'data/address/countries.dart';
 import 'data/address/country_codes.dart';
+import 'data/address/country_flag_emojis.dart';
 import 'data/address/neighborhoods.dart';
 import 'data/address/street_suffixes.dart';
 import 'faker.dart';
@@ -119,6 +122,14 @@ class Address {
   /// ```
   String countryCode() => random.element(countryCodes);
 
+  /// Generates a country flag emoji.
+  ///
+  /// Example:
+  /// ```dart
+  ///   faker.address.countryFlagEmoji();
+  /// ```
+  String countryFlagEmoji() => random.element(countryFlagEmojis);
+
   /// Generates a continent.
   ///
   /// Example:
@@ -126,4 +137,22 @@ class Address {
   ///   faker.address.continent();
   /// ```
   String continent() => random.element(continents);
+
+  /// Generates a latitude.
+  ///
+  /// Example:
+  /// ```dart
+  ///   faker.address.lat();
+  /// ```
+  double lat() => random.decimal(
+      scale: 180, min: -90); // lat needs to be between -90 and 90
+
+  /// Generates a longitude.
+  ///
+  /// Example:
+  /// ```dart
+  ///   faker.address.lng();
+  /// ```
+  double lng() => random.decimal(
+      scale: 360, min: -180); // lng needs to be between -180 and 180
 }

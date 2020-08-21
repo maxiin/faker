@@ -14,8 +14,10 @@ void main() {
 
     test('should be able to generate city', () {
       for (var i = 0; i < 20; i++) {
-        expect(faker.address.city(), anyOf(matches(r'^[^ ]+ [^ ]+[^]+$'),
-            matches(r'^[^ ]+ [^ ]+$'), matches(r"^[\w']+[\w]+$")));
+        expect(
+            faker.address.city(),
+            anyOf(matches(r'^[^ ]+ [^ ]+[^]+$'), matches(r'^[^ ]+ [^ ]+$'),
+                matches(r"^[\w']+[\w]+$")));
       }
     });
 
@@ -32,7 +34,8 @@ void main() {
     });
 
     test('should be able to generate street address', () {
-      expect(faker.address.streetAddress(), matches(RegExp(r'^[^ ]+ [^ ]+ [^ ]+$')));
+      expect(faker.address.streetAddress(),
+          matches(RegExp(r'^[^ ]+ [^ ]+ [^ ]+$')));
     });
 
     test('should be able to generate street suffix', () {
@@ -48,7 +51,8 @@ void main() {
     });
 
     test('should be able to generate country', () {
-      expect(faker.address.country(), matches(RegExp(r"^[\w,éÅô\.Ç\-()'^ ]+$")));
+      expect(
+          faker.address.country(), matches(RegExp(r"^[\w,éÅô\.Ç\-()'^ ]+$")));
     });
 
     test('should be able to generate country code', () {
@@ -57,6 +61,20 @@ void main() {
 
     test('should be able to generate continent', () {
       expect(faker.address.continent(), matches(RegExp(r'^[\w\s]*$')));
+    });
+
+    test('should be able to generate flag emoji', () {
+      final regex = RegExp(
+          r'[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]'); // Range character select to get emojis that are from AA to ZZ (current or future flags)
+      expect(faker.address.countryFlagEmoji(), matches(regex));
+    });
+
+    test('should be able to generate valid latitude', () {
+      expect(faker.address.lat(), inInclusiveRange(-90, 90));
+    });
+
+    test('should be able to generate valid longitude', () {
+      expect(faker.address.lng(), inInclusiveRange(-180, 180));
     });
   });
 }
