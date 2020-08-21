@@ -7,9 +7,10 @@ void main() {
   group('person', () {
     test('should be able to generate name', () {
       for (var i = 0; i < 20; i++) {
-        expect(faker.person.name(), anyOf(matches(r'^[^ ]+ [^ ]+$'),
-            matches(r'^[^ ]+ [^ ]+ [^ ]+$'),
-            matches(r'^[^ ]+ [^ ]+ [^ ]+ [^ ]+$')));
+        expect(
+            faker.person.name(),
+            anyOf(matches(r'^[^ ]+ [^ ]+$'), matches(r'^[^ ]+ [^ ]+ [^ ]+$'),
+                matches(r'^[^ ]+ [^ ]+ [^ ]+ [^ ]+$')));
       }
     });
 
@@ -27,6 +28,10 @@ void main() {
 
     test('should be able to generate suffix', () {
       expect(faker.person.suffix(), matches(RegExp(r'^[\w.]{1,3}$')));
+    });
+
+    test('should be able to generate language', () {
+      expect(faker.person.language(), matches(RegExp(r'^[\w ]*$')));
     });
   });
 }

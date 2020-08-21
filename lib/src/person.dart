@@ -1,3 +1,4 @@
+import 'data/person/languages.dart';
 import 'data/person/firstnames.dart';
 import 'data/person/lastnames.dart';
 import 'random_generator.dart';
@@ -58,6 +59,14 @@ class Person {
   ///   faker.person.lastName(); // Ward
   /// ```
   String lastName() => random.element(lastnames);
+
+  /// Generates a language.
+  ///
+  /// Example:
+  /// ```dart
+  ///   faker.person.language(); // Spanish
+  /// ```
+  String language() => random.element(languages);
 
   /// Generates a prefix.
   ///
