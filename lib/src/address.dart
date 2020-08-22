@@ -143,6 +143,7 @@ class Address {
   /// Example:
   /// ```dart
   ///   faker.address.lat();
+  ///   faker.address.lat({num min = -90, num max = 90});
   /// ```
   double lat({num min = -90, num max = 90}) =>
       random.decimalWithNegativeBetween(
@@ -153,6 +154,7 @@ class Address {
   /// Example:
   /// ```dart
   ///   faker.address.lng();
+  ///   faker.address.lng({num min = -180, num max = 180});
   /// ```
   double lng({num min = -180, num max = 180}) =>
       random.decimalWithNegativeBetween(
