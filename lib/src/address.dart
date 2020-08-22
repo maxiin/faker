@@ -144,8 +144,9 @@ class Address {
   /// ```dart
   ///   faker.address.lat();
   /// ```
-  double lat() => random.decimal(
-      scale: 180, min: -90); // lat needs to be between -90 and 90
+  double lat({num min = -90, num max = 90}) =>
+      random.decimalWithNegativeBetween(
+          min, max); // lat needs to be between -90 and 90
 
   /// Generates a longitude.
   ///
@@ -153,6 +154,7 @@ class Address {
   /// ```dart
   ///   faker.address.lng();
   /// ```
-  double lng() => random.decimal(
-      scale: 360, min: -180); // lng needs to be between -180 and 180
+  double lng({num min = -180, num max = 180}) =>
+      random.decimalWithNegativeBetween(
+          min, max); // lng needs to be between -180 and 180
 }

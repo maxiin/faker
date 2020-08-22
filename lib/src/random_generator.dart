@@ -45,6 +45,12 @@ class RandomGenerator {
   double decimal({num scale = 1, num min = 0}) =>
       _rng.nextDouble() * scale + min;
 
+  /// Generates a random decimal that accepts negative values.
+  /// mainly used for lat lng generation.
+  /// Accepts a [scale] and a [min] value.
+  double decimalWithNegativeBetween(num from, num to) =>
+      (_rng.nextDouble() * (to - from)) + from;
+
   /// Generates a random string with the given [max] value
   /// and to the lowest [min] value if provided.
   ///

@@ -76,5 +76,29 @@ void main() {
     test('should be able to generate valid longitude', () {
       expect(faker.address.lng(), inInclusiveRange(-180, 180));
     });
+
+    test('should be able to generate valid latitude', () {
+      expect(faker.address.lat(min: -22, max: -24), inInclusiveRange(-24, -22));
+    });
+
+    test('should be able to generate valid longitude', () {
+      expect(faker.address.lng(min: -47, max: -45), inInclusiveRange(-47, -45));
+    });
+
+    test('should be able to generate valid latitude', () {
+      expect(faker.address.lat(min: -10, max: 10), inInclusiveRange(-10, 10));
+    });
+
+    test('should be able to generate valid longitude', () {
+      expect(faker.address.lng(min: -20, max: 20), inInclusiveRange(-20, 20));
+    });
+
+    test('should be able to generate valid latitude', () {
+      expect(faker.address.lat(min: 0, max: 20), inInclusiveRange(0, 20));
+    });
+
+    test('should be able to generate valid longitude', () {
+      expect(faker.address.lng(min: 0, max: 10), inInclusiveRange(0, 10));
+    });
   });
 }
